@@ -1,0 +1,16 @@
+specVersion: "1"
+id: lax-666725
+leanVersion: "v4.33.0"
+mathlibVersion: "db584cd6d46c92f209a44c0f1c829460d327499d"
+title: "Randomized Complexity Classes"
+authors:
+  - name: Édouard Bonnet
+  - name: Codex
+bibEntries:
+  - |
+    @misc{katz2011randomized,
+      author = {Jonathan Katz},
+      title = {Notes on Complexity Theory: Lecture 12},
+      year = {2011},
+      url = {https://www.cs.umd.edu/~jkatz/complexity/f11/lecture12.pdf}
+    }
