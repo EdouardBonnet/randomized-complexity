@@ -1,4 +1,7 @@
-import Lax666725.Inclusions
+import Lax666725.ZPPSubsetOneSided
+import Lax666725.OneSidedSubsetBPP
+import Lax666725.ZPPSubsetBPP
+import Lax666725.BPPSubsetPP
 import Mathlib.Tactic
 
 namespace Lax666725Proofs
@@ -73,7 +76,7 @@ lemma zpp_complement {L : Language} (hL : L ∈ ZPP) : Lᶜ ∈ ZPP := by
 
 /--
 ---
-conclusion: Lax666725.Inclusions.ZPP_subset_RP_inter_coRP
+conclusion: Lax666725.ZPPSubsetOneSided.ZPP_subset_RP_inter_coRP
 ---
 Replace failure by rejection. Applying the same construction after
 complementing every definite answer gives the coRP witness.
@@ -106,7 +109,7 @@ lemma bpp_complement {L : Language} (hL : L ∈ BPP) : Lᶜ ∈ BPP := by
 
 /--
 ---
-conclusion: Lax666725.Inclusions.RP_union_coRP_subset_BPP
+conclusion: Lax666725.OneSidedSubsetBPP.RP_union_coRP_subset_BPP
 ---
 One-sided correctness implies bounded two-sided correctness. Complementing
 the output exchanges the two one-sided conventions.
@@ -119,18 +122,18 @@ theorem RP_union_coRP_subset_BPP : RP ∪ coRP ⊆ BPP := by
 
 /--
 ---
-conclusion: Lax666725.Inclusions.ZPP_subset_BPP
+conclusion: Lax666725.ZPPSubsetBPP.ZPP_subset_BPP
 ---
 Compose the proved inclusion into RP with the proved bounded-error inclusion.
 -/
 theorem ZPP_subset_BPP : ZPP ⊆ BPP := by
   intro L hL
-  exact Inclusions.RP_union_coRP_subset_BPP
-    (Or.inl (Inclusions.ZPP_subset_RP_inter_coRP hL).1)
+  exact OneSidedSubsetBPP.RP_union_coRP_subset_BPP
+    (Or.inl (ZPPSubsetOneSided.ZPP_subset_RP_inter_coRP hL).1)
 
 /--
 ---
-conclusion: Lax666725.Inclusions.BPP_subset_PP
+conclusion: Lax666725.BPPSubsetPP.BPP_subset_PP
 ---
 The bounded-error success probability exceeds one half.
 -/
