@@ -1,4 +1,4 @@
-import Lax666725.ProbabilisticMachines
+import Lax115662.ProbabilisticMachines
 
 /-!
 ---
@@ -15,7 +15,7 @@ $\mathrm{RP}$; it gives the same class as the customary threshold $1/2$.
 The complement is taken among binary words, not among languages.
 -/
 
-namespace Lax666725.OneSidedError
+namespace Lax115662.OneSidedError
 
 open Lax434930.PolynomialTime ProbabilisticMachines
 
@@ -26,4 +26,4 @@ def RP : Set Language :=
 
 def coRP : Set Language := {L | Lᶜ ∈ RP}
 
-end Lax666725.OneSidedError
+end Lax115662.OneSidedError

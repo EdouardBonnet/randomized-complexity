@@ -23,21 +23,33 @@ of bit strings producing an output in $E$, divided by $2^{p(|x|)}$.
 All machines and bounds are chosen uniformly, before the input.
 -/
 
-namespace Lax666725.ProbabilisticMachines
+namespace Lax115662.ProbabilisticMachines
+
+open scoped Classical
 
 open Lax434930.PolynomialTime Turing
 
 /-- Two finite local transition tables, with common halting configurations. -/
 structure Machine where
+  /-- The finite tape alphabet. -/
   Γ : Type
+  /-- The finite set of control states. -/
   Q : Type
+  /-- There are finitely many tape symbols. -/
   [alphabet : Fintype Γ]
+  /-- There are finitely many control states. -/
   [control : Fintype Q]
+  /-- The distinguished blank tape symbol. -/
   [blank : Inhabited Γ]
+  /-- The initial control state. -/
   [initial : Inhabited Q]
+  /-- Represent each binary input symbol as a tape symbol. -/
   input : Bool ↪ Γ
+  /-- Input symbols are distinct from the blank symbol. -/
   input_ne_blank : ∀ b, input b ≠ default
+  /-- One transition table for each possible coin outcome. -/
   transition : Bool → TM0.Machine Γ Q
+  /-- Whether a configuration halts is independent of the next coin. -/
   same_halts : ∀ q a, transition false q a = none ↔ transition true q a = none
 
 attribute [instance] Machine.alphabet Machine.control Machine.blank Machine.initial
@@ -53,9 +65,13 @@ def Machine.run (M : Machine) (x coins : Word) : TM0.Cfg M.Γ M.Q :=
 
 /-- A uniform procedure with a worst-case polynomial bound on every branch. -/
 structure Procedure (α : Type) where
+  /-- The machine executing the procedure. -/
   machine : Machine
+  /-- A polynomial bound on the number of steps on every computation branch. -/
   time : Polynomial ℕ
+  /-- The answer associated with each terminal control state. -/
   output : machine.Q → α
+  /-- Every coin sequence of the allowed length reaches a halting configuration. -/
   halts : ∀ (x : Word) (r : Fin (time.eval x.length) → Bool),
     TM0.step (machine.transition false) (machine.run x (List.ofFn r)) = none
 
@@ -69,13 +85,12 @@ def Procedure.eval {α : Type} (A : Procedure α) (x : Word) (r : A.Coins x) : �
 
 /-- Exact probability under independent uniform bits. -/
 noncomputable def Procedure.probability {α : Type} (A : Procedure α)
-    (x : Word) (E : α → Prop) : ℚ := by
-  classical
-  exact ((Finset.univ.filter (fun r : A.Coins x => E (A.eval x r))).card : ℚ) /
+    (x : Word) (E : α → Prop) : ℚ :=
+  ((Finset.univ.filter (fun r : A.Coins x => E (A.eval x r))).card : ℚ) /
     Fintype.card (A.Coins x)
 
 /-- A Boolean answer correctly decides membership of the given input. -/
 def Correct (L : Language) (x : Word) (b : Bool) : Prop :=
   (b = true ↔ x ∈ L)
 
-end Lax666725.ProbabilisticMachines
+end Lax115662.ProbabilisticMachines

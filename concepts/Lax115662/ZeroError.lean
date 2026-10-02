@@ -1,4 +1,4 @@
-import Lax666725.ProbabilisticMachines
+import Lax115662.ProbabilisticMachines
 
 /-!
 ---
@@ -18,7 +18,7 @@ the equivalence of these characterizations is not a theorem of this
 submission. Here `none` denotes "don't know" and `some b` a definite answer.
 -/
 
-namespace Lax666725.ZeroError
+namespace Lax115662.ZeroError
 
 open Lax434930.PolynomialTime ProbabilisticMachines
 
@@ -27,4 +27,4 @@ def ZPP : Set Language :=
     (∀ r b, A.eval x r = some b → Correct L x b) ∧
     (2 / 3 : ℚ) ≤ A.probability x (fun a => a.isSome = true)}
 
-end Lax666725.ZeroError
+end Lax115662.ZeroError

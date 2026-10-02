@@ -1,5 +1,5 @@
-import Lax666725.RandomizedPolynomialTime
-import Lax666725.OneSidedError
+import Lax115662.RandomizedPolynomialTime
+import Lax115662.OneSidedError
 
 /-!
 ---
@@ -12,10 +12,10 @@ Their one-sided guarantees imply correctness with probability at least
 $2/3$ on every input.
 -/
 
-namespace Lax666725.OneSidedSubsetBPP
+namespace Lax115662.OneSidedSubsetBPP
 
 open RandomizedPolynomialTime OneSidedError
 
 axiom RP_union_coRP_subset_BPP : RP ∪ coRP ⊆ BPP
 
-end Lax666725.OneSidedSubsetBPP
+end Lax115662.OneSidedSubsetBPP

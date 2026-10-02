@@ -1,4 +1,4 @@
-import Lax666725.ProbabilisticMachines
+import Lax115662.ProbabilisticMachines
 
 /-!
 ---
@@ -13,11 +13,11 @@ corresponding inputs. Languages are exactly those of
 `Lax434930.PolynomialTime.Language`.
 -/
 
-namespace Lax666725.RandomizedPolynomialTime
+namespace Lax115662.RandomizedPolynomialTime
 
 open Lax434930.PolynomialTime ProbabilisticMachines
 
 def BPP : Set Language :=
   {L | ∃ A : Procedure Bool, ∀ x, (2 / 3 : ℚ) ≤ A.probability x (Correct L x)}
 
-end Lax666725.RandomizedPolynomialTime
+end Lax115662.RandomizedPolynomialTime

@@ -1,5 +1,5 @@
-import Lax666725.OneSidedError
-import Lax666725.ZeroError
+import Lax115662.OneSidedError
+import Lax115662.ZeroError
 
 /-!
 ---
@@ -12,10 +12,10 @@ Replacing "don't know" by rejection gives an RP procedure; replacing it
 by acceptance gives a coRP procedure.
 -/
 
-namespace Lax666725.ZPPSubsetOneSided
+namespace Lax115662.ZPPSubsetOneSided
 
 open OneSidedError ZeroError
 
 axiom ZPP_subset_RP_inter_coRP : ZPP ⊆ RP ∩ coRP
 
-end Lax666725.ZPPSubsetOneSided
+end Lax115662.ZPPSubsetOneSided

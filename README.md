@@ -1,6 +1,6 @@
 # Randomized Complexity Classes
 
-Lax submission `lax-666725`, using the binary language type
+Lax submission `lax-115662`, using the binary language type
 `Lax434930.PolynomialTime.Language` from
 [Classical Complexity Classes](https://laxarchive.org/lax-434930/).
 

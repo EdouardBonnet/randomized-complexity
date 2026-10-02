@@ -1,4 +1,4 @@
-import Lax666725.ProbabilisticMachines
+import Lax115662.ProbabilisticMachines
 
 /-!
 ---
@@ -12,11 +12,11 @@ on the advantage over $1/2$ is imposed. We use the strict-correctness
 convention on both members and nonmembers; ties do not count as success.
 -/
 
-namespace Lax666725.UnboundedError
+namespace Lax115662.UnboundedError
 
 open Lax434930.PolynomialTime ProbabilisticMachines
 
 def PP : Set Language :=
   {L | ∃ A : Procedure Bool, ∀ x, (1 / 2 : ℚ) < A.probability x (Correct L x)}
 
-end Lax666725.UnboundedError
+end Lax115662.UnboundedError

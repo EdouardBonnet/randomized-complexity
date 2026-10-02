@@ -1,5 +1,6 @@
 specVersion: "1"
-id: lax-666725
+id: lax-115662
+supersedes: lax-666725
 leanVersion: "v4.33.0"
 mathlibVersion: "db584cd6d46c92f209a44c0f1c829460d327499d"
 title: "Randomized Complexity Classes"
@@ -14,6 +15,3 @@ bibEntries:
       year = {2011},
       url = {https://www.cs.umd.edu/~jkatz/complexity/f11/lecture12.pdf}
     }
-issue:
-  repositoryId: 1320232165
-  number: 142
